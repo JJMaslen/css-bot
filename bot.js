@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var re = /([0-9]+)d([0-9]+)([\+?|\-?]?[0-9]*)/;
-var acceptedRoleNames = ['first-year', 'second-year', 'third-year', 'postgraduate', 'alumni', 'noncompsci'];
+var acceptedRoleNames = ['First-Year', 'Second-Year', 'Third-Year', 'Postgraduate', 'Alumni'];
 var auth = require('./auth.json');
 var execFile = require('child_process').execFile;
 var https = require('https');

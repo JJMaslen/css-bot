@@ -2,10 +2,10 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var re = /([0-9]+)d([0-9]+)([\+?|\-?]?[0-9]*)/;
 var acceptedRoleNames = ['First-Year', 'Second-Year', 'Third-Year', 'Postgraduate', 'Alumni'];
-var auth = require('./auth.json');
+var auth = require(__dirname + '/auth.json');
 var execFile = require('child_process').execFile;
 var https = require('https');
-var emojis = require("./emojis.json");
+var emojis = require(__dirname + "/emojis.json");
 var fs = require("fs");
 var pollMessages = [];
 var helpMessage = "Commands:\n!DinkbotHelp  or !help - display this menu\n!roll xdy or !r xdy - roll x amount of y sided die\n!Ping - Pong!\n!Pong - Ping!\n!changerole [role] - Change your role! enter !changerole to find out what roles you can swap around\n!studentfinance - How many days are left until the next student finance payment?\n!poll - get info on how to make a poll!\n\nCommands are *not* case sensitive!";
@@ -304,17 +304,17 @@ function endPoll(pollToEnd, message){
 }
 
 function savePolls(){
-  fs.writeFileSync("./pollUsers.json", JSON.stringify(pollUsers));
+  fs.writeFileSync(__dirname + "/pollUsers.json", JSON.stringify(pollUsers));
 }
 
 function loadPolls(){
   try{
-    pollUsers = JSON.parse(fs.readFileSync("./pollUsers.json"));
+    pollUsers = JSON.parse(fs.readFileSync(__dirname + "/pollUsers.json"));
   }
   catch(error){
     var date = new Date();
-    fs.appendFileSync("./errorReadingPollFiles.json", "\n\n" + date.toString() + "\n");
-    fs.appendFileSync("./errorReadingPollFiles.json", error);
+    fs.appendFileSync(__dirname + "/errorReadingPollFiles.json", "\n\n" + date.toString() + "\n");
+    fs.appendFileSync(__dirname + "/errorReadingPollFiles.json", error);
     console.error(error);
     pollUsers = [];
   }

@@ -1,7 +1,7 @@
 {
-  "name": "DinkBot",
+  "name": "css_bot",
   "version": "1.0.0",
-  "description": "HackDay project 2017",
+  "description": "Discord bot for the University of Lincoln Computer Science Society",
   "main": "bot.js",
   "author": "DinkieShy",
   "dependencies": {
